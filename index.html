@@ -9,32 +9,24 @@
 </head>
 
 <body>
-    <div id="app">
+
+    <div id="app_v_if">
+        <template v-if="mostrar">
+                <a :href="url" target="_blank">{{enlace}}</a>
+        </template>
+    </div>
+
+
+    <div id="app_filters">
         <h1>{{ titulo | uppercase }}</h1>
         <h2>{{ subtitulo | capitalize }}</h2>
     </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-        let app = new Vue({
-            el: '#app',
-            data: {
-                titulo: 'Estás en Platzi',
-                subtitulo: 'Estás viendo el curso de Vue.js'
-            },
-            filters: {
-                uppercase: function(str) {
-                    return str.toUpperCase()
-                },
-                lowercase: function(str) {
-                    return str.toLowerCase()
-                },
-                capitalize: function(str) {
-                    return str.charAt(0).toUpperCase() + str.slice(1)
-                }
-            }
 
-        })
-    </script>
+
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/app_v_if.js"></script>
+    <script src="js/app_filters.js"></script>
 </body>
 
 </html>
