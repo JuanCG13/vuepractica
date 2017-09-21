@@ -4,7 +4,7 @@
  
 ### **V-IF**: Condiciona un elemento. 
 
-```dos
+```html
 <a v-if="mostrar" :href="url" >{{enlace}}</a>
 ```
 En el momento de hacer la instacia del elemento vue, le pasamos como parametro si mostrar está en true o false. 
