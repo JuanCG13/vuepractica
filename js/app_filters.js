@@ -13,7 +13,8 @@ let app_filters = new Vue({
     el: '#app_filters',
     data: {
         titulo: 'Estás en Platzi',
-        subtitulo: 'Estás viendo el curso de Vue.js'
+        subtitulo: 'Estás viendo el curso de Vue.js',
+        willchange: 'Texto que cambiara.'
     },
     filters: {
         uppercase: function(str) {
@@ -24,6 +25,10 @@ let app_filters = new Vue({
         },
         capitalize: function(str) {
             return str.charAt(0).toUpperCase() + str.slice(1)
+        },
+        rename: function(str) {
+            str = 'Texto cambiado';
+            return str;
         }
     }
 
