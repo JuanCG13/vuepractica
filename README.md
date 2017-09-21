@@ -90,3 +90,9 @@ Vue.js nos permite que una variable pase por un filtro antes de aparecer por pan
     <h3>{{ willchange | rename }}</h3>
 </div>
 ```
+#### Resultado
+<dl>
+  <h2>ESTÁS EN PLATZI</h2>
+  <h3>Estás viendo el curso de Vue.js</h3>
+  <h4>Texto cambiado</h4>
+</dl>
