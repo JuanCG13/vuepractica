@@ -7,27 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Filtro de datos en Vue.js</title>
 </head>
-
+<style>
+    h2.center{
+        text-align: center;
+    }
+</style>
 <body>
 
+
     <div id="app_v_if">
+        <h2 class="center">Condicionales</h2>
         <template v-if="mostrar">
                 <a :href="url" target="_blank">{{enlace}}</a>
         </template>
     </div>
 
+    <hr>
 
     <div id="app_filters">
+        <h2 class="center">Filtros</h2>
         <h1>{{ titulo | uppercase }}</h1>
         <h2>{{ subtitulo | capitalize }}</h2>
         <h3>{{ willchange | rename }}</h3>
     </div>
 
+    <hr>
 
+    <div id="app_events">
+        <h2 class="center">Eventos</h2>
+        <button @click="sumar">Sumar 1</button>
+        <button @click="restar">Restar 1</button>
+        El contador esta en {{ contador }}
+    </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script src="js/app_v_if.js"></script>
     <script src="js/app_filters.js"></script>
+    <script src="js/app_events.js"></script>
 </body>
 
 </html>

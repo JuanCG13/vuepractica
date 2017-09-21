@@ -44,12 +44,6 @@ Esta propiedad no se le puede aplicar a un template ya que los templates no son 
     </div>
 </div>
 ```
-### Cosas que hay que tener en cuenta
-1. Los Template no son elementos HTML, por lo tanto no son archivos que el navegador pueda interpretar.
-1. No se puede poner un atributo de CSS a un elemento que el navegador no entiende.
-1. Template es un englobador de objetos que Vue.js puede interpretar.
-
----
 
 ## **Filtros** 
 
@@ -90,3 +84,48 @@ Vue.js nos permite que una variable pase por un filtro antes de aparecer por pan
     <h3>{{ willchange | rename }}</h3>
 </div>
 ```
+
+## **Eventos** 
+Otra de las cosas que Vue.js nos permite hacer es el manejo de eventos, es decir, reaccionar ante la interacción de los usuarios con los elementos de un sitio web.
+
+```javascript
+let app_events = new Vue({
+    el: '#app_events',
+    data: {
+        contador: 0
+    },
+    methods: {
+        sumar: function(){
+            this.contador++;
+        },
+        restar: function(){
+            this.contador--;
+        }
+    }
+
+})
+```
+En este caso no podemos utilizar una arrow function ya que estaría haciendo referencia al objeto window. 
+
+### **v-on**:
+Debemos pasarle el evento al que tiene que reaccionar, en nuestro caso es *click* 
+
+```html
+<div id="app_events">
+    <button v-on:click="sumar">Sumar 1</button>
+    <button v-on:click="restar">Restar 1</button>
+    El contador esta en {{ contador }}
+</div>
+
+<!-- También se puede escribir de la siguiente manera: -->
+
+<div id="app_events">
+    <button @click="contador++">Sumar 1</button>
+    <button @click="contador--">Restar 1</button>
+    El contador esta en {{ contador }}
+</div>
+
+<!-- En caso de no querer definir un método de este tipo podemos modificar el valor de la variable directamente -->
+```
+
+

@@ -14,7 +14,7 @@ let app_filters = new Vue({
     data: {
         titulo: 'Estás en Platzi',
         subtitulo: 'Estás viendo el curso de Vue.js',
-        willchange: 'Texto que cambiara.'
+        willchange: 'Texto que cambiara'
     },
     filters: {
         uppercase: function(str) {
