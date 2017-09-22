@@ -129,4 +129,63 @@ Debemos pasarle el evento al que tiene que reaccionar, en nuestro caso es *click
 ```
 
 ## **Formularios** 
+Filtros y manejo de eventos para crear una interacción de usuario a través de un formulario en un sitio web.
 
+**V-MODEL**:
+
+Utilizaremos v-model para sincronizar un input con un valor recibido a través de data.
+```html
+<div id="app_forms">
+    <input type="text" name="nombre" placeholder="Introduce tu nombre" v-model="nombre">
+    <p>Tu nombre en mayúscula es: {{ nombre | uppercase }}</p>
+</div>
+```
+
+```javascript
+let app_forms = new Vue({
+   el: '#app_forms',
+   data: {
+      nombre: '',
+      cursos: []
+   },
+   filters: {
+       uppercase: function (str) {
+           return str.toUpperCase()
+       }
+   }
+});
+```
+Para evitar que cuando hagamos submit del formulario se recargue la página, añadimos un evento al formulario para cuando se haga submit. 
+```html
+<!-- 
+    - @: sustituye a v-on, que lo utilizamos para detectar un evento 
+    - submit: es el evento que queremos detectar
+    - prevent: para prevenir la recarga automática de la página
+    - "submit": Método que queremos que se ejecute en lugar de la recarga.
+-->
+ <form @submit.prevent="submit" action="" method="">
+```
+Ahora vemos un ejemplo con un formulario. En este caso guardaremos los valores seleccionados en el array definido como cursos. 
+
+Para acceder a estos datos desde el método invocado lo haremos a través de *this.cursos*
+
+
+```html
+
+<form @submit.prevent="submit" action="" method="">
+    <h2>¿Cuales son tus cursos favoritos?</h2>
+    <input v-model="cursos" type="checkbox" id="vue" value="vue">
+    <label for="vue">Curso de Vue.js</label>
+
+    <input v-model="cursos" type="checkbox" id="seo" value="seo">
+    <label for="seo">Curso de SEO</label>
+
+    <input v-model="cursos" type="checkbox" id="react" value="react">
+    <label for="react">Curso de React y Redux</label>
+
+    <input v-model="cursos" type="checkbox" id="growth" value="growth">
+    <label for="growth">Curso de Growth Marketing</label>
+
+    <button type="submit">Enviar</button>
+</form>
+```

@@ -43,10 +43,29 @@
     <hr>
 
     <div id="app_forms">
-        <input type="text" name="nombre" placeholder="Introduce tu nombre">
+        <input type="text" name="nombre" placeholder="Introduce tu nombre" v-model="nombre">
         <p>Tu nombre en mayúscula es: {{ nombre | uppercase }}</p>
+
+        <form @submit.prevent="submit" action="" method="">
+            <h2>¿Cuales son tus cursos favoritos?</h2>
+            <input v-model="cursos" type="checkbox" id="vue" value="vue">
+            <label for="vue">Curso de Vue.js</label>
+    
+            <input v-model="cursos" type="checkbox" id="seo" value="seo">
+            <label for="seo">Curso de SEO</label>
+    
+            <input v-model="cursos" type="checkbox" id="react" value="react">
+            <label for="react">Curso de React y Redux</label>
+    
+            <input v-model="cursos" type="checkbox" id="growth" value="growth">
+            <label for="growth">Curso de Growth Marketing</label>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    
     </div>
 
+    
 
     <script src="https://unpkg.com/vue"></script>
     <script src="js/app_v_if.js"></script>

@@ -1,8 +1,18 @@
-let app_v_if = new Vue({
-   el: '#app_v_if',
+let app_forms = new Vue({
+   el: '#app_forms',
    data: {
-      url: 'https://google.com',
-      enlace: 'Ir a Google',
-      mostrar: true, //Según el valor de esta variable se mostrará o no.
+      nombre: '',
+      cursos: []
+   },
+   filters: {
+       uppercase: function (str) {
+           return str.toUpperCase()
+       }
+   },
+   methods: {
+       submit: function () {
+           console.log('Enviado')
+           console.log(this.cursos)
+       }
    }
 });
