@@ -51,7 +51,7 @@ Esta propiedad no se le puede aplicar a un template ya que los templates no son 
 let app_filters = new Vue({
     el: '#app_filters',
     data: {
-        titulo: 'Estás en Platzi',
+        titulo: 'Estás en Platzi', 
         subtitulo: 'Estás viendo el curso de Vue.js',
         willchange: 'Texto que cambiara.'
     },
@@ -128,4 +128,5 @@ Debemos pasarle el evento al que tiene que reaccionar, en nuestro caso es *click
 <!-- En caso de no querer definir un método de este tipo podemos modificar el valor de la variable directamente -->
 ```
 
+## **Formularios** 
 

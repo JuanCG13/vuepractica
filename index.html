@@ -8,10 +8,11 @@
     <title>Filtro de datos en Vue.js</title>
 </head>
 <style>
-    h2.center{
+    h2.center {
         text-align: center;
     }
 </style>
+
 <body>
 
 
@@ -36,14 +37,22 @@
     <div id="app_events">
         <h2 class="center">Eventos</h2>
         <button @click="sumar">Sumar 1</button>
-        <button @click="restar">Restar 1</button>
-        El contador esta en {{ contador }}
+        <button @click="restar">Restar 1</button> El contador esta en {{ contador }}
     </div>
+
+    <hr>
+
+    <div id="app_forms">
+        <input type="text" name="nombre" placeholder="Introduce tu nombre">
+        <p>Tu nombre en mayúscula es: {{ nombre | uppercase }}</p>
+    </div>
+
 
     <script src="https://unpkg.com/vue"></script>
     <script src="js/app_v_if.js"></script>
     <script src="js/app_filters.js"></script>
     <script src="js/app_events.js"></script>
+    <script src="js/app_forms.js"></script>
 </body>
 
 </html>
