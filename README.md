@@ -171,7 +171,6 @@ Para acceder a estos datos desde el método invocado lo haremos a través de *th
 
 
 ```html
-
 <form @submit.prevent="submit" action="" method="">
     <h2>¿Cuales son tus cursos favoritos?</h2>
     <input v-model="cursos" type="checkbox" id="vue" value="vue">
