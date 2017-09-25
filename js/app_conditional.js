@@ -10,8 +10,8 @@
             </template>
         </div>
 */
-let app_v_if = new Vue({
-    el: '#app_v_if',
+let app_conditional = new Vue({
+    el: '#app_conditional',
     data: {
         url: 'https://google.com',
         enlace: 'Ir a Google',

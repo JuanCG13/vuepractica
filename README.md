@@ -188,3 +188,41 @@ Para acceder a estos datos desde el método invocado lo haremos a través de *th
     <button type="submit">Enviar</button>
 </form>
 ```
+
+## **Listas** 
+Recibimos un array de objetos cursos. Vamos a ver como iteramos por el array para imprimir cada opción.
+
+```javascript
+let app_lists = new Vue({
+   el: '#app_lists',
+   data: {
+      cursos: [
+        { nombre: 'Curso de Vue.js', value: 'vue'},
+        { nombre: 'Curso de Seo', value: 'seo'},
+        { nombre: 'Curso de React', value: 'react'},
+        { nombre: 'Curso de Marketing', value: 'growth'}
+      ],
+      cursosSeleccionados: []
+   },
+   methods: {
+       submit: function () {
+           console.log('Enviado')
+           console.log(this.cursosSeleccionados)
+       }
+   }
+});
+```
+
+### **V-FOR**
+Declaramos una variable *curso* y recorremos el array recibido *cursos*. Por cada elemento del array se ejecutará un input. 
+
+Necesitamos bindear los atributos al valor que tenga cada uno de los cursos. Para ello hacemos uso de **v-bind:**. 
+
+Cambiaremos el **v-model** para guardar los resultados de los checkbox en el array *cursosSeleccionados*.
+
+```html
+<template v-for="curso in cursos">
+    <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
+    <label v-bind:for="curso.value">{{curso.nombre}}</label>
+</template>
+```
