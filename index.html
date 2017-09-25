@@ -19,7 +19,7 @@
     <div id="app_conditional">
         <h2 class="center">Condicionales</h2>
         <template v-if="mostrar">
-                <a :href="url" target="_blank">{{enlace}}</a>
+            <a :href="url" target="_blank">{{enlace}}</a>
         </template>
     </div>
 
@@ -82,6 +82,19 @@
         </form>
     </div>
 
+    <div id="app_components">
+        <h2 class="center">Componentes</h2>
+        <form @submit.prevent="submit" action="" method="">
+            <h2>¿Cuales son tus cursos favoritos?</h2>
+
+            <template v-for="c in cursos">
+                <curso v-bind:curso="c" @checked="SelectCurso"></curso>
+            </template>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
     
 
     <script src="https://unpkg.com/vue"></script>
@@ -90,6 +103,7 @@
     <script src="js/app_events.js"></script>
     <script src="js/app_forms.js"></script>
     <script src="js/app_lists.js"></script>
+    <script src="js/app_components.js"></script>
 </body>
 
 </html>

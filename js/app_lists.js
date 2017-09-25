@@ -11,8 +11,8 @@ let app_lists = new Vue({
    },
    methods: {
        submit: function () {
-           console.log('Enviado')
-           console.log(this.cursosSeleccionados)
+           console.log('Enviado');
+           console.log(this.cursosSeleccionados);
        }
    }
 });

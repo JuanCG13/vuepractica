@@ -73,7 +73,6 @@ let app_filters = new Vue({
 
 })
 ```
-### **Aplicando filtros**
 
 Vue.js nos permite que una variable pase por un filtro antes de aparecer por pantalla. Primero de todo debemos definir el filtro y luego aplicarlo en el HTML. 
 
@@ -225,4 +224,81 @@ Cambiaremos el **v-model** para guardar los resultados de los checkbox en el arr
     <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
     <label v-bind:for="curso.value">{{curso.nombre}}</label>
 </template>
+```
+
+## **Componentes**
+Ejemplo de como crear un componente reutilizable. 
+
+Primero de todo definimos en nuestro html dónde queremos utilizar el componente. 
+
+Para obtener el valor de las variables de cada curso, necesitamos bindear el valor de cada curso al componente. 
+
+Definimos el evento al que atenderá nuestro componente padre *app_components* e indicamos el método donde recibiremos la respuesta.
+ ```html
+<template v-for="c in cursos">
+    <curso v-bind:curso="c" @checked="SelectCurso"></curso>
+</template>
+```
+
+Debemos crear un div que englobe nuestro componente, ya que no podemos utilizar la etiqueta *template* al no ser interpretada por los navegadores. 
+
+El array *props* lo recibimos de nuestro componente padre *app_components* e indica que propiedades necesita este componente para dibujarse. En este caso necesita acceder a los valores del curso. 
+
+
+
+```javascript
+Vue.component('curso',{
+    props: ['curso'],
+    methods: {
+        //
+        onchange: function(ev){
+            this.$emit('checked', this.curso.value, ev.target.checked)
+        }
+    },
+    template: `
+        <div>
+            <input type="checkbox" @change="onchange" v-bind:id="curso.value" v-bind:value="curso.value">
+            <label v-bind:for="curso.value">{{curso.nombre}}</label>
+        </div>` 
+});
+
+<!-- $emit('nombre del evento', 'que curso se checkeó', 'true o false si esta check')  -->
+```
+
+El componente padre *app_components* le pasa las propiedades al componente hijo *curso* a través de *props*. En caso que cambien estan propiedades, es una mala práctica cambiar directamente los atributos del padre (v-model). El componente hijo debe emitir eventos para que el padre responda a estos eventos. 
+
+Definiremos tambien el método que atenderá al evento de si ha cambiado algún valor en nuestro componente hijo *curso*. Este método recibe como parámetros los valores enviados en nuestro método *onchange* del componente *curso*. 
+
+```javascript
+
+let app_components = new Vue({
+   el: '#app_components',
+   data: {
+      cursos: [
+        { nombre: 'Curso de Vue.js', value: 'vue'},
+        { nombre: 'Curso de Seo', value: 'seo'},
+        { nombre: 'Curso de React', value: 'react'},
+        { nombre: 'Curso de Marketing', value: 'growth'}
+      ],
+      cursosSeleccionados: []
+   },
+   methods: {
+       submit: function () {
+           console.log('Enviado');
+           console.log(this.cursosSeleccionados);
+       },
+       selectCurso: function (curso, ischecked) {
+            if(checked){
+                //En caso que este checked añadimos el curso a cursosSeleccionados
+                this.cursosSeleccionados.push(curso)
+            } else  {
+                //Si esta unchecked quitamos al curso de cursosSeleccionados      
+                let index = this.cursosSeleccionados.indexOf(curso) //Declaramos un indice de la posición del curso en el array 
+
+                //Sacamos curso
+                this.cursosSeleccionados.splice(index, 1)//splice recibe el indice y cuantas posiciones vamos a sacar a partir del indice. 
+            }
+       }
+   }
+});
 ```
