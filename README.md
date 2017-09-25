@@ -1,4 +1,4 @@
-# Curso básico de Vue.js
+# Guía básica sobre los fundamentos de Vue.js
 Apuntes del curso de [Platzi](https://platzi.com/).
 
 Curso básico en el que veremos, condicionales, filtro de datos, control de eventos, manejo de formularios, listar elementos y ver una pequeña introducción a la creación de componentes con vue.js
