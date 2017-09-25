@@ -13,14 +13,12 @@ let app = new Vue({
         mostrar: true //Según el valor de esta variable se mostrará o no.
     }
 })
+
 ```
-
-
 ### **v-if**: 
 Añade o elimina un elemento del DOM en función del valor de la variable tomada por **v-if="variable"**
 
 En el momento de hacer la instacia del elemento vue, le pasamos como parametro si mostrar está en true o false. 
-
 
 ```html
 <div id="app">
@@ -29,7 +27,6 @@ En el momento de hacer la instacia del elemento vue, le pasamos como parametro s
     </template>
 </div>
 ```
-
 
 ### **v-show**: 
 
@@ -44,9 +41,7 @@ Esta propiedad no se le puede aplicar a un template ya que los templates no son 
     </div>
 </div>
 ```
-
 ## **Filtros** 
-
 ```javascript
 let app_filters = new Vue({
     el: '#app_filters',
@@ -73,7 +68,6 @@ let app_filters = new Vue({
 
 })
 ```
-
 Vue.js nos permite que una variable pase por un filtro antes de aparecer por pantalla. Primero de todo debemos definir el filtro y luego aplicarlo en el HTML. 
 
 ```html
@@ -83,7 +77,6 @@ Vue.js nos permite que una variable pase por un filtro antes de aparecer por pan
     <h3>{{ willchange | rename }}</h3>
 </div>
 ```
-
 ## **Eventos** 
 Otra de las cosas que Vue.js nos permite hacer es el manejo de eventos, es decir, reaccionar ante la interacción de los usuarios con los elementos de un sitio web.
 
@@ -126,7 +119,6 @@ Debemos pasarle el evento al que tiene que reaccionar, en nuestro caso es *click
 
 <!-- En caso de no querer definir un método de este tipo podemos modificar el valor de la variable directamente -->
 ```
-
 ## **Formularios** 
 Filtros y manejo de eventos para crear una interacción de usuario a través de un formulario en un sitio web.
 
@@ -168,7 +160,6 @@ Ahora vemos un ejemplo con un formulario. En este caso guardaremos los valores s
 
 Para acceder a estos datos desde el método invocado lo haremos a través de *this.cursos*
 
-
 ```html
 <form @submit.prevent="submit" action="" method="">
     <h2>¿Cuales son tus cursos favoritos?</h2>
@@ -187,7 +178,6 @@ Para acceder a estos datos desde el método invocado lo haremos a través de *th
     <button type="submit">Enviar</button>
 </form>
 ```
-
 ## **Listas** 
 Recibimos un array de objetos cursos. Vamos a ver como iteramos por el array para imprimir cada opción.
 
@@ -211,7 +201,6 @@ let app_lists = new Vue({
    }
 });
 ```
-
 ### **V-FOR**
 Declaramos una variable *curso* y recorremos el array recibido *cursos*. Por cada elemento del array se ejecutará un input. 
 
@@ -225,7 +214,6 @@ Cambiaremos el **v-model** para guardar los resultados de los checkbox en el arr
     <label v-bind:for="curso.value">{{curso.nombre}}</label>
 </template>
 ```
-
 ## **Componentes**
 Ejemplo de como crear un componente reutilizable. 
 
@@ -239,12 +227,9 @@ Definimos el evento al que atenderá nuestro componente padre *app_components* e
     <curso v-bind:curso="c" @checked="SelectCurso"></curso>
 </template>
 ```
-
 Debemos crear un div que englobe nuestro componente, ya que no podemos utilizar la etiqueta *template* al no ser interpretada por los navegadores. 
 
 El array *props* lo recibimos de nuestro componente padre *app_components* e indica que propiedades necesita este componente para dibujarse. En este caso necesita acceder a los valores del curso. 
-
-
 
 ```javascript
 Vue.component('curso',{

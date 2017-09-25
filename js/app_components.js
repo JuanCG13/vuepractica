@@ -29,7 +29,7 @@ let app_components = new Vue({
            console.log(this.cursosSeleccionados);
        },
        selectCurso: function (curso, ischecked) {
-            if(checked){
+            if(ischecked){
                 this.cursosSeleccionados.push(curso)
             } else  {
                 let index = this.cursosSeleccionados.indexOf(curso)

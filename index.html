@@ -88,7 +88,7 @@
             <h2>¿Cuales son tus cursos favoritos?</h2>
 
             <template v-for="c in cursos">
-                <curso v-bind:curso="c" @checked="SelectCurso"></curso>
+                <curso v-bind:curso="c" @checked="selectCurso"></curso>
             </template>
     
             <button type="submit">Enviar</button>
@@ -98,7 +98,7 @@
     
 
     <script src="https://unpkg.com/vue"></script>
-    <script src="js/app_v_conditional.js"></script>
+    <script src="js/app_conditional.js"></script>
     <script src="js/app_filters.js"></script>
     <script src="js/app_events.js"></script>
     <script src="js/app_forms.js"></script>
